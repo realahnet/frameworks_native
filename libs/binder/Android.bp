@@ -633,6 +633,11 @@ cc_defaults {
         true: ["-DLIBBINDER_BINDER_OBSERVER_V2"],
         false: [],
         default: [],
+    }) + select(soong_config_variable("libbinder", "binder_vm_size_4mb"), {
+        any @ value: [
+            "-DBINDER_VM_SIZE_4MB=1",
+        ],
+        default: [],
     }),
 }
 
