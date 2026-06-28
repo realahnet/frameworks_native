@@ -762,6 +762,22 @@ bool AHardwareBuffer_formatIsYuv(uint32_t format) {
         case AHARDWAREBUFFER_FORMAT_YCbCr_P010:
         case AHARDWAREBUFFER_FORMAT_YCbCr_P210:
             return true;
+#ifdef TARGET_SHIPS_OPLUS_CAM
+        // Qualcomm vendor YUV formats
+        case 0x7FA30C00:
+        case 0x7FA30C01:
+        case 0x7FA30C03:
+        case 0x7FA30C04:
+        case 0x7FA30C06:
+        case 0x7FA30C07:
+        case 0x7FA30C09:
+        case 0x7FA30C0A:
+        case 0x113:
+        case 0x114:
+        case 0x116:
+        case 0x124:
+            return true;
+#endif
         default:
             return false;
     }
